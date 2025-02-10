@@ -3,6 +3,10 @@ import { FormatoData } from '../types/FormatoData.js';
 import { formatarMoeda, formatarData } from '../utils/formatters.js';
 const elementoRegistroTransacoesExtrato = document.querySelector('.extrato .registro-transacoes');
 function renderizarExtrato() {
+    if (!elementoRegistroTransacoesExtrato) {
+        console.error('Elemento .extrato .registro-transacoes não encontrado no DOM');
+        return;
+    }
     const gruposTransacoes = Conta.getGruposTransacoes();
     elementoRegistroTransacoesExtrato.innerHTML = '';
     let htmlRegistroTransacoes = '';
